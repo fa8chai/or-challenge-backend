@@ -40,7 +40,7 @@ def api_signup(request):
     password = request.data['password']
     name = request.data['name']
     user = User.objects.create(password = password, email = email, name = name )
-    if user.save() :
+    if user:
         login(request, user)
         return JsonResponse({
             'success': True,
