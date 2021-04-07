@@ -93,8 +93,12 @@ WSGI_APPLICATION = 'challenge.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd7gnbs4foqtj5f',
+        'USER': 'bcaikakvesrxjq',
+        'PASSWORD': '70581ccbd32b10e40b2d5c10b12e7d5e102482208b7b409a5d1ecad6c5651914',
+        'HOST': 'ec2-3-211-37-117.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
