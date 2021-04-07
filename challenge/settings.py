@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',
     'rest_framework.authtoken',
     'easy_thumbnails',
     'users',
@@ -57,7 +56,6 @@ REST_FRAMEWORK = {
     )
 }
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -65,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'challenge.urls'
@@ -148,7 +147,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
-CORS_ALLOW_ALL_ORIGINS = True
-CORS_REPLACE_HTTPS_REFERER = True
-ALLOWED_HOSTS=['*']
 
