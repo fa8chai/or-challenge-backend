@@ -15,7 +15,7 @@ def api_login(request):
     password = request.data['password']
     user = authenticate(request, email=email, password=password)
     user = User.objects.get(email=email);
-    if user is not None and user.is_staff:
+    if user and user.is_staff:
         login(request, user)
         return JsonResponse({
             'url': reverse('admin:login'),
@@ -24,7 +24,7 @@ def api_login(request):
             'email': user.email,
         })
 
-    elif user is not None and not user.is_Staff:
+    elif user and !user.is_staff:
         login(request, user)
         return JsonResponse({
             'user_found': True,

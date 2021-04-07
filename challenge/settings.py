@@ -148,7 +148,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'https://or-challenge.herokuapp.com/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CORS_ALLOW_CREDENTIALS = True
