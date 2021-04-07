@@ -95,11 +95,11 @@ WSGI_APPLICATION = 'challenge.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd7gnbs4foqtj5f',
-        'USER': 'bcaikakvesrxjq',
-        'PASSWORD': '70581ccbd32b10e40b2d5c10b12e7d5e102482208b7b409a5d1ecad6c5651914',
-        'HOST': 'ec2-3-211-37-117.compute-1.amazonaws.com',
+        'ENGINE': '',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '5432',
     }
 }
@@ -154,12 +154,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'ds1ylz9tn',
-    'API_KEY': '134347647925563',
-    'API_SECRET': '9CVpwqzCQrYRtQ1Tvpt6Xl2IZuQ',
+    'CLOUD_NAME': '',
+    'API_KEY': '',
+    'API_SECRET': '',
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-CLOUDINARY_URL='cloudinary://134347647925563:9CVpwqzCQrYRtQ1Tvpt6Xl2IZuQ@ds1ylz9tn'
+CLOUDINARY_URL=''
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
