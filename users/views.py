@@ -53,4 +53,4 @@ def api_signup(request):
     except ValidationError :         
         return JsonResponse({
             'success': False
-        }
+        })
