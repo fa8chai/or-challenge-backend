@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'rest_framework.authtoken',
+    'cloudinary',
     'easy_thumbnails',
     'users',
     'app',
@@ -148,13 +149,22 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-MEDIA_URL = 'https://or-challenge.herokuapp.com/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'ds1ylz9tn',
+    'API_KEY': '134347647925563',
+    'API_SECRET': '9CVpwqzCQrYRtQ1Tvpt6Xl2IZuQ',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+CLOUDINARY_URL='cloudinary://134347647925563:9CVpwqzCQrYRtQ1Tvpt6Xl2IZuQ@ds1ylz9tn'
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_REPLACE_HTTPS_REFERER = True
 ALLOWED_HOSTS=['*']
+
 
 
 django_heroku.settings(locals())

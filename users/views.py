@@ -24,7 +24,7 @@ def api_login(request):
             'email': user.email,
         })
 
-    elif user and !user.is_staff:
+    elif user and user.is_staff == False:
         login(request, user)
         return JsonResponse({
             'user_found': True,
