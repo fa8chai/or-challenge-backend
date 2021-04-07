@@ -1,6 +1,6 @@
 from django.db import models
 from djmoney.models.fields import MoneyField
-from thumbnails.fields import ImageField
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 
@@ -28,8 +28,10 @@ class Product(models.Model):
 
 class Image(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
-    image = ImageField(upload_to='products/')
+    image = models.ImageField(upload_to='products/')
     default = models.BooleanField(default=False)
+    avatar = ThumbnailerImageField(resize_source=dict(size=(100, 100), sharpen=True), auto_created=True)
+
     def __str__(self):
         return self.product.title + ' Image'
 

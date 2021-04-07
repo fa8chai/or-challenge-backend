@@ -36,6 +36,6 @@ class OrderSerializer(serializers.ModelSerializer):
         product_data = validated_data.pop('product')
         order_user_data = validated_data.pop('order_user')
         product = Product.objects.get(**product_data)
-        order_user = OrderUser.objects.get_or_create(**order_user_data)
+        order_user = OrderUser.objects.get_or_create(**order_user_data)[0]
         order = Order.objects.create(product=product, order_user=order_user, **validated_data)
         return order
