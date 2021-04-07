@@ -148,6 +148,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_REPLACE_HTTPS_REFERER = True
 ALLOWED_HOSTS=['*']
-CORS_ALLOWED_ORIGINS = ['https://or-challenge.web.app',]
 
