@@ -5,6 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from .models import User
 from rest_framework.permissions import AllowAny
+from django.core.exceptions import ValidationError
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -12,6 +14,7 @@ def api_login(request):
     email = request.data['email']
     password = request.data['password']
     user = authenticate(request, email=email, password=password)
+    user = User.objects.get(email=email);
     if user is not None and user.is_staff:
         login(request, user)
         return JsonResponse({
@@ -39,15 +42,14 @@ def api_signup(request):
     email = request.data['email']
     password = request.data['password']
     name = request.data['name']
-    user = User.objects.create(password = password, email = email, name = name )
-    if user:
+    try:
+        user = User.objects.create(password = password, email = email, name = name )
         login(request, user)
         return JsonResponse({
             'success': True,
             'name': user.name,
             'email': user.email,
         })
-    else:
+    except ValidationError :         
         return JsonResponse({
             'success': False
-        })
