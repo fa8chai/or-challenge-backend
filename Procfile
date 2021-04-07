@@ -1,1 +1,1 @@
-web: gunicorn challenge.wsgi --timeout 0 --log-file -
+web: gunicorn challenge.wsgi:application --timeout 0 --log-file -
